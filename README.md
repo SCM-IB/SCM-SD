@@ -28,10 +28,10 @@ SCM-SD revisits this problem from an information bottleneck perspective and prop
 
 The manuscript reports consistent gains on two RGB-IR multi-view datasets across camera pose estimation, depth prediction, and point cloud reconstruction.
 <p align="center">
-  <img src="fig_2.png" alt="SCM-IB overview" width="800"/>
+  <img src="assets/fig_2_1.png" alt="SCM-SD overview" width="800"/>
 </p>
 <p align="center">
-  <em>Figure 1. Overview of SCM-IB. The method performs structure-conditioned cross-modal distillation from RGB teacher features to infrared student features for feed-forward 3D reconstruction.</em>
+  <em>Figure 1. Overview of SCM-SD. The method performs structure-conditioned cross-modal distillation from RGB teacher features to infrared student features for feed-forward 3D reconstruction.</em>
 </p>
 
 ## 2. Core Method 🧠

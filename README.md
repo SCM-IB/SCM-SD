@@ -14,17 +14,17 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-# SCM-IB: Structure-conditioned Cross-modal Information Bottleneck for Feed-Forward Infrared 3D Reconstruction 👋
+# SCM-SD: Structure-conditioned Cross-modal Selective Distillation for Feed-Forward Infrared 3D Reconstruction 👋
 
 
-> This repository contains the SCM-IB codebase (extended from the VGGT/pi3 framework) for RGB-to-IR cross-modal distillation in feed-forward 3D reconstruction.
+> This repository contains the SCM-SD codebase (extended from the VGGT/pi3 framework) for RGB-to-IR cross-modal distillation in feed-forward 3D reconstruction.
 
 ---
 
 ## 1. Overview 🚀
 
 In low-light, nighttime, and smoke-occluded environments, infrared (IR) sensing is often more reliable than visible-light sensing. However, directly transferring RGB-pretrained 3D models to the IR domain usually leads to clear performance drops.  
-SCM-IB revisits this problem from an information bottleneck perspective and proposes a selective distillation paradigm with **structure preservation + conditional compression + task supervision**. The goal is to preserve geometry-relevant transferable information while suppressing modality-specific redundant information during cross-modal transfer.
+SCM-SD revisits this problem from an information bottleneck perspective and proposes a selective distillation paradigm with **structure preservation + conditional compression + task supervision**. The goal is to preserve geometry-relevant transferable information while suppressing modality-specific redundant information during cross-modal transfer.
 
 The manuscript reports consistent gains on two RGB-IR multi-view datasets across camera pose estimation, depth prediction, and point cloud reconstruction.
 <p align="center">
@@ -36,7 +36,7 @@ The manuscript reports consistent gains on two RGB-IR multi-view datasets across
 
 ## 2. Core Method 🧠
 
-SCM-IB consists of four key components:
+SCM-SD objective consists of four key components:
 
 1. **Teacher-induced Structural Operator**  
    Builds a structural condition from teacher self-affinity and decomposes features into structure-guided and residual parts.
@@ -57,7 +57,7 @@ Main implementation entry points:
 ## 3. Repository Structure 🗂️
  
 ```text
-scm-IB/
+scm-sd/
 ├─ training/
 │  ├─ launch.py                          # Training entry (Hydra)
 │  ├─ trainer.py                         # Main training loop / DDP
@@ -77,8 +77,8 @@ scm-IB/
 `requirements.txt` in this repository is in Conda-style package list format. Recommended setup:
 
 ```bash
-conda create -n scmib --file requirements.txt
-conda activate scmib
+conda create -n scmsd --file requirements.txt
+conda activate scmsd
 ```
 
 ## 5. Data Organization 📝
@@ -112,7 +112,7 @@ This script generates, per scene:
 
 ### 6.1 Update Configuration
 
-Edit the following fields in `training/config/colmap_dataset_scmib.yaml`:
+Edit the following fields in `training/config/colmap_dataset_scmsd.yaml`:
 
 - `data.train.dataset.dataset_configs[0].COLMAP_DIR`
 - `data.val.dataset.dataset_configs[0].COLMAP_DIR`
@@ -122,13 +122,13 @@ Edit the following fields in `training/config/colmap_dataset_scmib.yaml`:
 ### 6.2 Single-GPU Training
 
 ```bash
-python training/launch.py --config colmap_dataset_scmib
+python training/launch.py --config colmap_dataset_scmsd
 ```
 
 ### 6.3 Multi-GPU Training
 
 ```bash
-torchrun --nproc_per_node=4 training/launch.py --config colmap_dataset_scmib
+torchrun --nproc_per_node=4 training/launch.py --config colmap_dataset_scmsd
 ```
 
 Default outputs:
@@ -161,7 +161,7 @@ python eval/eval_script.py --config eval/eval_config.yaml
 
 See `eval/FINAL_METRICS_TASKS.md` for metric definitions.
 
-## 8. Key Hyperparameters (SCM-IB) 🧪
+## 8. Key Hyperparameters (SCM-SD) 🧪
 
 Location: `training/config/colmap_dataset_scmib.yaml`
 

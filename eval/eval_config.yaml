@@ -1,0 +1,30 @@
+# 评估配置文件
+# 所有参数都可以在这里设置，然后通过 --config 参数指定该文件
+
+# 数据集设置
+data_dir: "/data1/hsj/data_full"
+
+# 批量评估设置
+ckpt_dirs:
+#  - "/Your/Ckpt/Path/ckpts"
+
+
+# 输入帧数设置
+input_frames: [3, 4, 6, 8, 10, 12]
+
+# 评估设置
+output_path: "./Your_results"
+plot: true
+depth_conf_thresh: 1.0
+# Point cloud backprojection mode is fixed in eval_script.py:
+# predicted pose + predicted depth (pred_pose_pred_depth).
+sample_mode: "range"
+sample_range_size: 24
+num_trials: 3
+num_scenes: null
+max_sequence: 500
+debug: false
+
+# 点云对齐设置
+use_proj: true
+use_icp: true

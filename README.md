@@ -1,6 +1,6 @@
 
 <!--
-**SCM-IB/SCM-IB** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**SCM-SD/SCM-SD** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
@@ -61,8 +61,8 @@ scm-sd/
 ├─ training/
 │  ├─ launch.py                          # Training entry (Hydra)
 │  ├─ trainer.py                         # Main training loop / DDP
-│  ├─ structural_distillation_loss.py    # SCM-IB loss
-│  └─ config/colmap_dataset_scmib.yaml   # SCM-IB training config
+│  ├─ structural_distillation_loss.py    # SCM-SD loss
+│  └─ config/colmap_dataset_scmib.yaml   # SCM-SD training config
 ├─ eval/
 │  ├─ eval_script.py                     # Evaluation entry (pose/depth/point cloud)
 │  ├─ depth_process0.py                  # Depth alignment and back-projection preprocessing
@@ -207,5 +207,5 @@ After official release (e.g., Journal version), replace with the final BibTeX.
 
 ## 11. Acknowledgement 🙏
 
-This project is implemented by extending the VGGT & pi3 codebase and introducing SCM-IB for RGB-IR cross-modal distillation.
+This project is implemented by extending the VGGT & pi3 codebase and introducing SCM-SD for RGB-IR cross-modal distillation.
 
